@@ -1,0 +1,17 @@
+<!-- app/views/lists/show.html.erb -->
+<h1><%= @list.name %></h1>
+
+<p>Here you can add more details about the list, like its bookmarks.</p>
+
+<%= link_to 'Back to lists', lists_path %>
+
+<% if @list.image.attached? %>
+  <%= image_tag @list.image, class: "img-fluid", size: "400x400" %>
+<% else %>
+  <p>No image available</p>
+<% end %>
+
+<h2>Movies in this list:</h2>
+<% @list.movies.each do |movie| %>
+  <p><%= movie.title %></p>
+<% end %>
